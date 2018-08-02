@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/12/2017 18:07:22 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.edu.fatec.aula.model.Carros" table="carros" catalog="vendas" optimistic-lock="version">
+        <id name="idcarros" type="java.lang.Integer">
+            <column name="idcarros" />
+            <generator class="identity" />
+        </id>
+        <property name="modelo" type="string">
+            <column name="modelo" length="45" />
+        </property>
+        <property name="ano" type="string">
+            <column name="ano" length="9" />
+        </property>
+        <property name="marca" type="string">
+            <column name="marca" length="25" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="tipo" length="15" />
+        </property>
+        <property name="combustivel" type="string">
+            <column name="combustivel" length="11" />
+        </property>
+        <property name="cilindradas" type="string">
+            <column name="cilindradas" length="5" />
+        </property>
+        <property name="cor" type="string">
+            <column name="cor" length="30" />
+        </property>
+        <property name="valor" type="java.lang.Double">
+            <column name="valor" precision="22" scale="0" />
+        </property>
+        <property name="opcional" type="string">
+            <column name="opcional" length="1000" />
+        </property>
+        <property name="km" type="string">
+            <column name="km" length="45" />
+        </property>
+        <set name="vendas" table="venda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="carros_idcarros" not-null="true" />
+            </key>
+            <one-to-many class="br.edu.fatec.aula.model.Venda" />
+        </set>
+    </class>
+</hibernate-mapping>

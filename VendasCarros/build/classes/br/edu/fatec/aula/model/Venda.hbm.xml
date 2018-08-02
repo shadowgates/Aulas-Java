@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/12/2017 18:07:22 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.edu.fatec.aula.model.Venda" table="venda" catalog="vendas" optimistic-lock="version">
+        <composite-id name="id" class="br.edu.fatec.aula.model.VendaId">
+            <key-property name="idvenda" type="int">
+                <column name="idvenda" />
+            </key-property>
+            <key-property name="clientesIdclientes" type="int">
+                <column name="clientes_idclientes" />
+            </key-property>
+            <key-property name="carrosIdcarros" type="int">
+                <column name="carros_idcarros" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="carros" class="br.edu.fatec.aula.model.Carros" update="false" insert="false" fetch="select">
+            <column name="carros_idcarros" not-null="true" />
+        </many-to-one>
+        <many-to-one name="clientes" class="br.edu.fatec.aula.model.Clientes" update="false" insert="false" fetch="select">
+            <column name="clientes_idclientes" not-null="true" />
+        </many-to-one>
+        <property name="entrada" type="java.lang.Double">
+            <column name="entrada" precision="22" scale="0" />
+        </property>
+        <property name="parcelas" type="java.lang.Integer">
+            <column name="parcelas" />
+        </property>
+    </class>
+</hibernate-mapping>

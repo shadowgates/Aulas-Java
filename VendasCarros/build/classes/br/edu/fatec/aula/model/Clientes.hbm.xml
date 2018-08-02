@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/12/2017 18:07:22 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.edu.fatec.aula.model.Clientes" table="clientes" catalog="vendas" optimistic-lock="version">
+        <id name="idclientes" type="java.lang.Integer">
+            <column name="idclientes" />
+            <generator class="identity" />
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" length="45" />
+        </property>
+        <property name="endereco" type="string">
+            <column name="endereco" length="45" />
+        </property>
+        <property name="rg" type="string">
+            <column name="rg" length="11" />
+        </property>
+        <property name="cpf" type="string">
+            <column name="cpf" length="15" />
+        </property>
+        <property name="bairro" type="string">
+            <column name="bairro" length="30" />
+        </property>
+        <property name="cidade" type="string">
+            <column name="cidade" length="30" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="2" />
+        </property>
+        <property name="sexo" type="string">
+            <column name="sexo" length="10" />
+        </property>
+        <property name="civil" type="string">
+            <column name="civil" length="14" />
+        </property>
+        <property name="nascimento" type="date">
+            <column name="nascimento" length="10" />
+        </property>
+        <property name="complemento" type="string">
+            <column name="complemento" length="15" />
+        </property>
+        <property name="cep" type="string">
+            <column name="cep" length="10" />
+        </property>
+        <property name="telefone" type="string">
+            <column name="telefone" length="14" />
+        </property>
+        <property name="celular" type="string">
+            <column name="celular" length="16" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <property name="ocupacao" type="string">
+            <column name="ocupacao" length="45" />
+        </property>
+        <property name="salario" type="java.lang.Double">
+            <column name="salario" precision="22" scale="0" />
+        </property>
+        <property name="orgao" type="string">
+            <column name="orgao" length="10" />
+        </property>
+        <set name="vendas" table="venda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="clientes_idclientes" not-null="true" />
+            </key>
+            <one-to-many class="br.edu.fatec.aula.model.Venda" />
+        </set>
+    </class>
+</hibernate-mapping>
