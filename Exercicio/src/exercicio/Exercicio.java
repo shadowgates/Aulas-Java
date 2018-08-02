@@ -15,7 +15,7 @@ public class Exercicio {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Agenda agenda = new Agenda(0);
+        Agenda agenda = new Agenda(9);
         Pessoa p1 = new Pessoa("Tiago", "Guerino");
         agenda.add(p1);
         agenda.printAll();
@@ -23,6 +23,7 @@ public class Exercicio {
         Contato c1 = new Contato("Tiago", "Guerino", "(00)0000-00000");
         agenda.add(c1);
         agenda.printFones();
+        
     }
 
 }
